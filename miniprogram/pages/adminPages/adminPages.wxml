@@ -1,0 +1,31 @@
+<view wx:if="{{loaded && cur}}" class="container">
+  <picker mode="selector" range="{{pages}}" range-key="navTitle" value="{{pIndex}}" bindchange="onPagePick">
+    <view class="ppick">编辑页面：<text class="pp-name">{{cur.navTitle}}</text> ▾</view>
+  </picker>
+  <view class="prow">
+    <view class="pr-btn" bindtap="newPage">＋ 新建一页</view>
+    <view class="pr-btn del" bindtap="delPage">删除本页</view>
+    <view class="pr-move" data-dir="up" bindtap="move">▲</view>
+    <view class="pr-move" data-dir="down" bindtap="move">▼</view>
+  </view>
+  <view class="f"><view class="lb">页面名（导航栏 + 选择列表显示）</view><textarea class="ta" value="{{cur.navTitle}}" data-f="navTitle" bindinput="setF" maxlength="-1" auto-height /></view>
+
+  <view class="grp">首页卡片</view>
+  <view class="f"><view class="lb">卡片标题（可换行）</view><textarea class="ta" value="{{cur.cardTitle}}" data-f="cardTitle" bindinput="setF" maxlength="-1" auto-height /></view>
+  <view class="f"><view class="lb">卡片副标题</view><textarea class="ta" value="{{cur.cardSub}}" data-f="cardSub" bindinput="setF" maxlength="-1" auto-height /></view>
+
+  <view class="grp">正文内容（HTML）</view>
+  <view class="hint">不会写 HTML？把要的内容描述给 AI，并加一句：<text class="hl">"请生成用于微信小程序 mp-html 组件的 HTML，避免不支持的标签和 JS、避免外链字体和复杂脚本"</text>，把它给的代码粘到下面。图片用下面的"插入图片"按钮，会自动加到末尾。</view>
+  <textarea class="ta html" value="{{cur.html}}" data-f="html" bindinput="setF" maxlength="-1" auto-height placeholder="粘贴 HTML，如 <h2>标题</h2><p>段落…</p>" />
+  <view class="row">
+    <view class="mini-btn" bindtap="addImg">＋ 插入图片</view>
+    <view class="mini-btn" bindtap="doPreview">预览效果</view>
+  </view>
+
+  <view wx:if="{{preview}}" class="preview">
+    <view class="pv-h muted">预览</view>
+    <mp-html content="{{preview}}" />
+  </view>
+
+  <view class="btn-save {{saving?'disabled':''}}" bindtap="save">{{saving?'保存中…':'保存'}}</view>
+</view>

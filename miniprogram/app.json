@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/guide/guide",
+    "pages/me/me",
+    "pages/profile/profile",
+    "pages/wild/wild",
+    "pages/recordEdit/recordEdit",
+    "pages/manifesto/manifesto",
+    "pages/join/join",
+    "pages/adminJoins/adminJoins",
+    "pages/adminCats/adminCats",
+    "pages/adminVenue/adminVenue",
+    "pages/adminMembers/adminMembers",
+    "pages/venue/venue",
+    "pages/content/content",
+    "pages/session/session",
+    "pages/mysignups/mysignups",
+    "pages/admin/admin",
+    "pages/adminEdit/adminEdit",
+    "pages/adminSignups/adminSignups",
+    "pages/adminPages/adminPages",
+    "pages/nodesMap/nodesMap",
+    "pages/adminNodes/adminNodes"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#f5f1ea",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "归山村落",
+    "backgroundColor": "#f5f1ea"
+  },
+  "tabBar": {
+    "color": "#8a8378",
+    "selectedColor": "#5f7060",
+    "backgroundColor": "#f5f1ea",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "归山"
+      },
+      {
+        "pagePath": "pages/wild/wild",
+        "text": "山野"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "旅人证"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "mp-html": "/components/mp-html/index"
+  }
+}

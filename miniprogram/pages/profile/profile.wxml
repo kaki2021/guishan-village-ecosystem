@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="lead muted">完善你的旅人身份，旅人证就有名有脸了</view>
+  <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image wx:if="{{avatarUrl}}" class="avatar" src="{{avatarUrl}}"></image>
+    <view wx:else class="avatar ph">＋ 头像</view>
+  </button>
+  <view class="field">
+    <view class="lb muted">昵称</view>
+    <input type="nickname" class="ipt" placeholder="点此填写昵称" value="{{nickName}}" bindinput="onNick" bindblur="onNick" />
+  </view>
+  <view class="btn-primary {{saving?'disabled':''}}" bindtap="save">{{saving?'保存中…':'保存'}}</view>
+</view>

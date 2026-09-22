@@ -1,0 +1,17 @@
+.chat { display:flex; flex-direction:column; height:100vh; }
+.stream { flex:1; padding:28rpx; box-sizing:border-box; }
+.row { display:flex; margin-bottom:20rpx; }
+.row.user { justify-content:flex-end; }
+.bubble { max-width:78%; padding:22rpx 26rpx; border-radius:18rpx; font-size:30rpx; line-height:1.7; }
+.bubble.ai { background:#fffdf8; border:1rpx solid #e6ddcf; }
+.bubble.user { background:#5f7060; color:#fff; }
+.picks { margin:0 0 24rpx 0; }
+.pick { background:#fffdf8; border:1rpx solid #e6ddcf; border-left:8rpx solid #5f7060; border-radius:12rpx; padding:22rpx; margin-bottom:14rpx; }
+.pick-t { font-size:32rpx; }
+.pick-s { font-size:24rpx; margin-top:6rpx; }
+.chips { display:flex; flex-wrap:wrap; padding:0 24rpx; }
+.chip { font-size:24rpx; color:#5f7060; background:#eaeee6; border-radius:24rpx; padding:10rpx 24rpx; margin:0 16rpx 16rpx 0; }
+.bar { display:flex; padding:18rpx 24rpx calc(18rpx + env(safe-area-inset-bottom)); border-top:1rpx solid #e6ddcf; background:#f5f1ea; }
+.ipt { flex:1; background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:30rpx; padding:18rpx 28rpx; font-size:30rpx; }
+.send { width:96rpx; text-align:center; line-height:72rpx; margin-left:16rpx; background:#5f7060; color:#fff; border-radius:30rpx; }
+.send.disabled { background:#c2c9bf; }

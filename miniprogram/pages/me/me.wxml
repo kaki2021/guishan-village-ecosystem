@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="cert" style="background:{{theme.bg}};border:1rpx solid {{theme.no}}">
+    <view class="cert-cn" style="color:{{theme.info}}">归山村落 · 旅人证</view>
+    <view class="me-row" bindtap="goProfile">
+      <image wx:if="{{profile.avatarUrl}}" class="me-av" src="{{profile.avatarUrl}}"></image>
+      <view wx:else class="me-av ph">山</view>
+      <view class="me-name" style="color:{{theme.title}}">{{profile.nickName || '未署名的旅人'}}<text class="rank" style="color:{{theme.bg}};background:{{theme.title}}">{{rankTitle}}</text></view>
+      <view class="me-edit" style="color:{{theme.info}}">完善 ›</view>
+    </view>
+    <view wx:if="{{myRoles.length}}" class="roles">
+      <view class="role" wx:for="{{myRoles}}" wx:key="roleKey" style="color:{{theme.info}};border-color:{{theme.no}}">{{item.name}} · {{item.venueName}}</view>
+    </view>
+    <view wx:if="{{fclNo}}" class="fcl" style="border-color:{{theme.no}}">
+      <view class="fcl-top">
+        <text class="fcl-seq" style="color:{{theme.title}}">风吹岭第 {{fclSeq}} 位旅人</text>
+        <text class="fcl-no" style="color:{{theme.no}}">{{fclNo}}</text>
+      </view>
+      <view wx:if="{{fclDate}}" class="fcl-date" style="color:{{theme.info}}">入会 · {{fclDate}}</view>
+    </view>
+    <view wx:if="{{!myRoles.length && !fclNo}}" class="invite-enter" bindtap="openInvite">有邀请码？点此加入山村 ›</view>
+  </view>
+
+  <view wx:if="{{wildStamps.length}}" class="ws-box">
+    <view class="ws-h muted">山野章</view>
+    <view class="ws-row">
+      <view class="ws" wx:for="{{wildStamps}}" wx:key="key">{{item.icon}} {{item.label}} ×{{item.count}}</view>
+    </view>
+  </view>
+
+  <block wx:if="{{hasAny}}">
+    <view class="vcard" wx:for="{{venues}}" wx:key="venueId" style="border-left:10rpx solid {{item.brandColor}}">
+      <view class="v-head">
+        <view class="v-name serif">{{item.venueName}}</view>
+        <view class="v-title" style="color:{{item.brandColor}}">{{item.title}}</view>
+      </view>
+      <view class="muted">已赴约 {{item.signupCount}} 次</view>
+      <view wx:if="{{item.stamps.length}}" class="stamps">
+        <view class="stamp" wx:for="{{item.stamps}}" wx:for-item="s" wx:key="category">{{s.label}}</view>
+      </view>
+    </view>
+    <view class="link" bindtap="goMine">我的报名 ›</view>
+  </block>
+
+  <view wx:else class="empty">
+    还是位山客——报名一场活动，旅人证就开始生长
+    <view class="link" bindtap="goNetwork">去看看活动 ›</view>
+  </view>
+
+  <view wx:if="{{isAdmin}}" class="admin-link" bindtap="goAdmin">⚙ 管理后台 ›</view>
+</view>

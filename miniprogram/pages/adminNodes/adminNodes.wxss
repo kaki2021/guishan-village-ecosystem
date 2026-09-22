@@ -1,0 +1,10 @@
+.container { padding: 28rpx; }
+.tip { font-size: 25rpx; margin-bottom: 20rpx; }
+.n { background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 16rpx; padding: 28rpx; margin-bottom: 20rpx; }
+.n-name { font-size: 33rpx; font-weight: 600; color: #2f2f2b; }
+.n-intro, .n-addr, .n-by { font-size: 25rpx; margin-top: 8rpx; }
+.n-ops { display: flex; margin-top: 20rpx; }
+.n-btn { flex: 1; text-align: center; border-radius: 12rpx; padding: 20rpx; font-size: 28rpx; }
+.n-btn.ok { color: #fff; background: #5f7060; margin-right: 16rpx; }
+.n-btn.no { color: #b06a55; background: #f4e9e5; }
+.empty { text-align: center; color: #b8b0a2; padding: 100rpx 0; }

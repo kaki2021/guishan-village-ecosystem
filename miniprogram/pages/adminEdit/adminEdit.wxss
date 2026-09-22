@@ -1,0 +1,28 @@
+.vn { margin:8rpx 0 24rpx; }
+.f { margin-bottom:26rpx; }
+.f2 { display:flex; justify-content:space-between; margin-bottom:26rpx; }
+.half { width:48%; }
+.lb { font-size:26rpx; color:#8a8378; margin-bottom:12rpx; }
+.ipt, .pk { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:12rpx; padding:22rpx; font-size:32rpx; }
+.ta { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:12rpx; padding:22rpx; font-size:32rpx; width:100%; box-sizing:border-box; height:160rpx; }
+.ta.tall { height:320rpx; }
+.btn-primary { margin-top:20rpx; }
+.cover-row { display:flex; }
+.cover-wrap { position:relative; }
+.cover-img { width:300rpx; height:180rpx; border-radius:12rpx; }
+.cover-del { position:absolute; top:-12rpx; right:-12rpx; width:40rpx; height:40rpx; line-height:36rpx; text-align:center; background:rgba(0,0,0,.6); color:#fff; border-radius:50%; }
+.cover-add { width:300rpx; height:180rpx; border:1rpx dashed #b9c2b3; border-radius:12rpx; text-align:center; line-height:180rpx; color:#b9c2b3; font-size:30rpx; }
+.photos { display:flex; flex-wrap:wrap; }
+.ph-item { position:relative; margin:0 16rpx 16rpx 0; }
+.ph-img { width:160rpx; height:160rpx; border-radius:10rpx; }
+.ph-del { position:absolute; top:-12rpx; right:-12rpx; width:40rpx; height:40rpx; line-height:36rpx; text-align:center; background:rgba(0,0,0,.6); color:#fff; border-radius:50%; }
+.ph-add { width:160rpx; height:160rpx; border:1rpx dashed #b9c2b3; border-radius:10rpx; text-align:center; line-height:160rpx; font-size:50rpx; color:#b9c2b3; }
+.hint { font-size: 24rpx; line-height: 1.6; margin: -10rpx 0 26rpx; }
+
+/* 内容正文 HTML 编辑 */
+.ta.html { font-family: "Courier New", monospace; font-size: 26rpx; line-height: 1.65; min-height: 420rpx; }
+.html-hint { font-size: 23rpx; line-height: 1.7; color: #8a7c63; background: #f6efe6; border-radius: 12rpx; padding: 20rpx; margin-bottom: 14rpx; }
+.html-row { display: flex; margin-top: 16rpx; }
+.html-btn { flex: 1; text-align: center; color: #5f7060; background: #eef1ea; border-radius: 12rpx; padding: 20rpx; font-size: 28rpx; margin-right: 16rpx; }
+.html-btn:last-child { margin-right: 0; }
+.html-preview { margin-top: 22rpx; background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 14rpx; padding: 24rpx; }

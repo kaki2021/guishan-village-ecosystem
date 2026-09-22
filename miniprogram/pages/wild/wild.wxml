@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="lead serif">金佛山见闻</view>
+  <view class="muted sub">一起记录这座山</view>
+
+  <view class="rec" wx:for="{{list}}" wx:key="_id">
+    <view class="head">
+      <image wx:if="{{item.avatarUrl}}" class="av" src="{{item.avatarUrl}}"></image>
+      <view wx:else class="av ph">山</view>
+      <view class="who">{{item.nickName}}</view>
+      <view class="muted when">{{item.icon}} {{item.catName}} · {{item.timeText}}</view>
+    </view>
+    <view wx:if="{{item.text}}" class="text">{{item.text}}</view>
+    <view wx:if="{{item.images.length}}" class="imgs">
+      <image wx:for="{{item.images}}" wx:for-item="im" wx:key="*this" class="im" src="{{im}}" mode="aspectFill"
+             data-urls="{{item.images}}" data-cur="{{im}}" bindtap="preview"></image>
+    </view>
+  </view>
+
+  <view wx:if="{{loaded && !list.length}}" class="empty">还没有见闻——你来记第一条</view>
+</view>
+<view wx:if="{{canPost}}" class="fab" bindtap="add">＋ 记一条</view>

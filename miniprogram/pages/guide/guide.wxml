@@ -1,0 +1,25 @@
+<view class="chat">
+  <scroll-view scroll-y class="stream" scroll-into-view="bottom">
+    <block wx:for="{{msgs}}" wx:key="index">
+      <view class="row {{item.role}}">
+        <view class="bubble {{item.role}}">{{item.text}}</view>
+      </view>
+      <view wx:if="{{item.cards.length}}" class="picks">
+        <view class="pick" wx:for="{{item.cards}}" wx:for-item="c" wx:key="id" data-kind="{{c.kind}}" data-id="{{c.id}}" bindtap="tapCard">
+          <view class="pick-t serif">{{c.title}}</view>
+          <view class="muted pick-s">{{c.sub}}</view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{loading}}" class="row ai"><view class="bubble ai muted">向导正在山里看看…</view></view>
+    <view id="bottom"></view>
+  </scroll-view>
+
+  <view class="chips">
+    <view class="chip" wx:for="{{chips}}" wx:key="*this" data-q="{{item}}" bindtap="pickChip">{{item}}</view>
+  </view>
+  <view class="bar">
+    <input class="ipt" value="{{input}}" placeholder="说说你想要什么" bindinput="onInput" confirm-type="send" bindconfirm="send" />
+    <view class="send {{loading?'disabled':''}}" bindtap="send">问</view>
+  </view>
+</view>

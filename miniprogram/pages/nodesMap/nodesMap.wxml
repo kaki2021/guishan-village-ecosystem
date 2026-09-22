@@ -1,0 +1,18 @@
+<view class="page">
+  <map wx:if="{{hasGeo}}" class="map" latitude="{{latitude}}" longitude="{{longitude}}" scale="11"
+    markers="{{markers}}" enable-satellite="{{true}}" bindmarkertap="onMarkerTap"></map>
+
+  <view wx:if="{{loaded && !hasGeo}}" class="empty">
+    还没有节点设置位置。在「节点资料」里给节点填上经纬度，就会显示在地图上。
+  </view>
+
+  <view wx:if="{{sel}}" class="card">
+    <view class="c-close" bindtap="closeCard">×</view>
+    <view class="c-name">{{sel.name}}</view>
+    <view wx:if="{{sel.intro}}" class="c-intro">{{sel.intro}}</view>
+    <view class="c-acts">
+      <view class="c-btn ghost" bindtap="goVenue">看详情</view>
+      <view class="c-btn fill" bindtap="navTo">导航去这里</view>
+    </view>
+  </view>
+</view>

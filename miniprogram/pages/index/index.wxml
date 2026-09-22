@@ -1,0 +1,72 @@
+<view class="container">
+  <!-- 理念主视觉（可左右滑动轮播） -->
+  <swiper class="hero-sw" indicator-dots indicator-color="rgba(255,255,255,.35)" indicator-active-color="#ffffff" autoplay interval="4500" circular>
+    <swiper-item wx:for="{{heroCards}}" wx:key="big">
+      <view class="hero-card" data-key="{{item.key}}" catchtap="goManifesto">
+        <view class="mh-line serif">{{item.title}}</view>
+        <view class="mh-sub">{{item.sub}}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 村子近况 -->
+  <view wx:if="{{moments.length}}" class="moments-box">
+    <view class="section-h moments-h">山野近况<text class="more" bindtap="goWild">更多 ›</text></view>
+    <view class="moment" wx:for="{{moments}}" wx:key="_id">
+      <view class="mo-head">
+        <image wx:if="{{item.avatarUrl}}" class="mo-av" src="{{item.avatarUrl}}"></image>
+        <view wx:else class="mo-av ph">村</view>
+        <view class="mo-who">{{item.nickName}}</view>
+        <view class="muted mo-when">{{item.tag ? item.tag + ' · ' : ''}}{{item.timeText}}</view>
+      </view>
+      <view wx:if="{{item.text}}" class="mo-text">{{item.text}}</view>
+      <view wx:if="{{item.images.length}}" class="mo-imgs">
+        <image wx:for="{{item.images}}" wx:for-item="im" wx:key="*this" class="mo-im" src="{{im}}" mode="aspectFill" data-urls="{{item.images}}" data-cur="{{im}}" bindtap="previewMo"></image>
+      </view>
+      <view wx:if="{{item.place}}" class="muted mo-place">📍 {{item.place}}</view>
+    </view>
+  </view>
+
+  <!-- 近期活动（单次+周期 展开的场次，按时间排） -->
+  <view wx:if="{{sessions.length}}">
+    <view class="section-h">近期活动</view>
+    <view class="card" wx:for="{{sessions}}" wx:key="activityId" data-aid="{{item.activityId}}" bindtap="goSession">
+      <view><text class="dot" style="background:{{item.venueColor}}"></text><text class="tag">{{item.venueName}} · {{item.categoryLabel}}</text></view>
+      <view class="c-title serif">{{item.title}}</view>
+      <view class="muted">{{item.recurrenceText}}</view>
+    </view>
+  </view>
+
+  <!-- 山中各处 -->
+  <view class="section-h">山中各处<text class="more" bindtap="goNodesMap">看地图 ›</text></view>
+  <scroll-view wx:if="{{venueTypes.length}}" class="vtype-bar" scroll-x="true">
+    <view class="vtype {{curType==='' ? 'on' : ''}}" data-key="" bindtap="filterType">全部</view>
+    <view wx:for="{{venueTypes}}" wx:key="key" class="vtype {{curType===item.key ? 'on' : ''}}" data-key="{{item.key}}" bindtap="filterType">{{item.name}}</view>
+  </scroll-view>
+  <view class="v-grid">
+    <view class="v-card" wx:for="{{shownVenues}}" wx:key="_id" data-id="{{item._id}}" bindtap="goVenue" style="border-top:8rpx solid {{item.brandColor}}">
+      <image wx:if="{{item.cover}}" class="vc-cover" src="{{item.cover}}" mode="aspectFill"></image>
+      <view class="vc-body">
+        <view class="vc-top">
+          <view class="v-name serif">{{item.name}}</view>
+          <view wx:if="{{item.typeLabels.length}}" class="v-types">
+            <text wx:for="{{item.typeLabels}}" wx:for-item="t" wx:key="*this" class="v-type" style="color:{{item.brandColor}};border-color:{{item.brandColor}}">{{t}}</text>
+          </view>
+        </view>
+        <view class="muted v-intro">{{item.intro}}</view>
+      </view>
+    </view>
+    <view wx:if="{{!shownVenues.length}}" class="muted v-empty">这个类型下还没有节点</view>
+  </view>
+
+  <!-- 加入我们（行动色） -->
+  <view class="join-entry" bindtap="goJoin">
+    <view class="j-t">加入我们</view>
+    <view class="j-s">来住几天、长期驻留、一起共建，或带一个节点加入 ›</view>
+  </view>
+
+  <!-- 山中向导（降级为底部低调入口） -->
+  <view class="guide-line" bindtap="goGuide">
+    <text class="gl-ico">🧭</text><text class="gl-t">问问山中向导</text><text class="gl-a">›</text>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+.lb { margin:24rpx 0 14rpx; }
+.cats { display:flex; flex-wrap:wrap; }
+.cat { font-size:28rpx; color:#5f7060; background:#eaeee6; border-radius:30rpx; padding:12rpx 28rpx; margin:0 16rpx 16rpx 0; }
+.cat.on { background:#5f7060; color:#fff; }
+.photos { display:flex; flex-wrap:wrap; }
+.ph-item { position:relative; margin:0 16rpx 16rpx 0; }
+.ph-img { width:180rpx; height:180rpx; border-radius:12rpx; }
+.ph-del { position:absolute; top:-12rpx; right:-12rpx; width:40rpx; height:40rpx; line-height:36rpx; text-align:center; background:rgba(0,0,0,.6); color:#fff; border-radius:50%; }
+.ph-add { width:180rpx; height:180rpx; border:1rpx dashed #b9c2b3; border-radius:12rpx; text-align:center; line-height:180rpx; font-size:60rpx; color:#b9c2b3; }
+.ai { margin:20rpx 0; color:#5f7060; font-size:28rpx; border:1rpx solid #b9c2b3; border-radius:12rpx; padding:18rpx; text-align:center; }
+.ta { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:12rpx; padding:22rpx; font-size:32rpx; width:100%; box-sizing:border-box; height:200rpx; }
+.btn-primary { margin-top:30rpx; }

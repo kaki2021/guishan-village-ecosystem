@@ -1,0 +1,10 @@
+.top { margin:14rpx 0 24rpx; }
+.card { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:14rpx; padding:24rpx; margin-bottom:18rpx; }
+.row1 { display:flex; align-items:center; }
+.kind { font-size:24rpx; color:#fff; background:#9c5a3c; border-radius:20rpx; padding:6rpx 18rpx; }
+.when { margin-left:auto; font-size:24rpx; }
+.name { font-size:34rpx; margin:16rpx 0 10rpx; }
+.kv { color:#5f7060; font-size:28rpx; padding:8rpx 0; }
+.msg { margin-top:12rpx; font-size:28rpx; line-height:1.7; color:#3a3a36; background:#f3efe6; border-radius:10rpx; padding:18rpx; }
+.skills { display:flex; flex-wrap:wrap; margin-top:14rpx; }
+.sk { font-size:24rpx; color:#5f7060; background:#eef1ea; border-radius:20rpx; padding:6rpx 20rpx; margin:0 12rpx 12rpx 0; }

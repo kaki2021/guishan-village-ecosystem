@@ -1,0 +1,14 @@
+<view wx:if="{{content}}">
+  <image class="cover" src="{{content.cover}}" mode="widthFix" wx:if="{{content.cover}}"></image>
+  <view class="container">
+    <view class="tag">{{content.typeLabel}}</view>
+    <view class="title serif">{{content.title}}</view>
+    <view class="body"><mp-html content="{{content.bodyHtml}}" /></view>
+    <view wx:if="{{session}}" class="card cta" bindtap="goSession">
+      <view class="muted">这篇可以来现场</view>
+      <view class="c-title serif">{{session.title}}</view>
+      <view class="remain">查看场次并报名 ›</view>
+    </view>
+  </view>
+</view>
+<view wx:else class="empty">加载中…</view>

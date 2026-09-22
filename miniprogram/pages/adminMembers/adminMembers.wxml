@@ -1,0 +1,25 @@
+<view wx:if="{{loaded}}" class="container">
+  <view class="muted tip">点成员可设称号。亓灵只能管自己节点的仓灵；玄灵 / 襾灵称号受保护（仅玄灵可设）。</view>
+
+  <view wx:if="{{me.isChief}}" class="abdicate" bindtap="abdicate">我要退位为襾灵 ›</view>
+
+  <scroll-view class="mfilter" scroll-x="true">
+    <view class="mf {{filterKey==='titled'?'on':''}}" data-key="titled" bindtap="setFilter">有称号</view>
+    <view class="mf {{filterKey==='member'?'on':''}}" data-key="member" bindtap="setFilter">仓灵</view>
+    <view class="mf {{filterKey==='steward'?'on':''}}" data-key="steward" bindtap="setFilter">亓灵</view>
+    <view class="mf {{filterKey==='manager'?'on':''}}" data-key="manager" bindtap="setFilter">止灵</view>
+    <view class="mf {{filterKey==='all'?'on':''}}" data-key="all" bindtap="setFilter">全部</view>
+  </scroll-view>
+
+  <view class="m" wx:for="{{shownList}}" wx:key="openid" data-m="{{item}}" bindtap="tapMember">
+    <image wx:if="{{item.avatarUrl}}" class="m-av" src="{{item.avatarUrl}}"></image>
+    <view wx:else class="m-av ph">{{item.rankTitle[0]}}</view>
+    <view class="m-body">
+      <view class="m-name">{{item.nickName}}{{item.fclNo ? ' · ' + item.fclNo : ''}}</view>
+      <view class="muted m-sub">{{item.rankTitle}}{{item.venueName ? ' · ' + item.venueName : ''}}{{item.referrerName ? ' · 由 ' + item.referrerName + ' 引进' : ''}}</view>
+    </view>
+    <view wx:if="{{item.locked && !me.isChief}}" class="m-lock">🔒</view>
+    <view wx:else class="m-go">设称号 ›</view>
+  </view>
+  <view wx:if="{{!shownList.length}}" class="empty">{{filterKey==='titled' ? '还没有有称号的成员' : '没有符合的成员'}}</view>
+</view>

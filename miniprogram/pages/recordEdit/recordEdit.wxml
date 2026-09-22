@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="lb muted">照片（拍完自动帮你认）</view>
+  <view class="photos">
+    <view class="ph-item" wx:for="{{photos}}" wx:key="temp">
+      <image class="ph-img" src="{{item.temp}}" mode="aspectFill"></image>
+      <view class="ph-del" data-i="{{index}}" bindtap="delPhoto">×</view>
+    </view>
+    <view wx:if="{{photos.length < 9}}" class="ph-add" bindtap="choose">＋</view>
+  </view>
+  <view wx:if="{{photos.length}}" class="ai" bindtap="recognize">{{recognizing?'识别中…':'🔍 重新用 AI 识别'}}</view>
+  <view wx:if="{{aiTip}}" class="ai-tip muted">{{aiTip}}</view>
+
+  <view class="lb muted">标签</view>
+  <view class="cats">
+    <view wx:if="{{newTag}}" class="cat new {{!catKey?'on':''}}" bindtap="pickNew">✨ {{newTag.icon}} {{newTag.name}}</view>
+    <view class="cat {{catKey===item.key?'on':''}}" wx:for="{{tags}}" wx:key="key" data-key="{{item.key}}" bindtap="pickCat">{{item.icon}} {{item.name}}</view>
+  </view>
+
+  <view class="lb muted">说一句</view>
+  <textarea class="ta" value="{{text}}" bindinput="onText" placeholder="此刻看到的、想到的" maxlength="300" />
+
+  <view class="btn-primary {{submitting?'disabled':''}}" bindtap="submit">{{submitting?'提交中…':'记下'}}</view>
+</view>

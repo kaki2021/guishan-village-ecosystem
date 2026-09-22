@@ -1,0 +1,24 @@
+page { background:#f5f1ea; color:#2f2c27; font-size:30rpx; line-height:1.7; }
+.container { padding:32rpx; }
+.muted { color:#8a8378; }
+.serif { font-family:"Songti SC","STSong",serif; }
+.card { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:16rpx; padding:28rpx; margin-bottom:24rpx; }
+.tag { display:inline-block; font-size:22rpx; color:#5f7060; background:#eaeee6; padding:4rpx 16rpx; border-radius:20rpx; }
+.dot { display:inline-block; width:14rpx; height:14rpx; border-radius:50%; margin-right:10rpx; vertical-align:middle; }
+.section-h { font-size:26rpx; color:#8a8378; letter-spacing:3rpx; margin:40rpx 0 20rpx; }
+.btn-primary { background:#5f7060; color:#fff; border-radius:14rpx; text-align:center; padding:26rpx; font-size:32rpx; }
+.btn-primary.disabled { background:#c2c9bf; color:#eef1ea; }
+.empty { color:#8a8378; text-align:center; padding:60rpx 0; }
+.c-title { font-size:34rpx; margin:12rpx 0 8rpx; }
+.remain { color:#9c5a3c; }
+
+/* 全局修复：微信单行 input 默认高度小、文字易被上下截断。
+   强制固定高度 + 行高居中 + 去掉上下内边距（保留各页自定义的左右内边距），彻底根治截断。 */
+input {
+  height: 80rpx !important;
+  min-height: 80rpx !important;
+  line-height: 80rpx !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  box-sizing: border-box !important;
+}

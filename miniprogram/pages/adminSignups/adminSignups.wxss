@@ -1,0 +1,8 @@
+.s-title { font-size:40rpx; margin-top:10rpx; }
+.sum { margin:12rpx 0 30rpx; }
+.row { display:flex; align-items:center; padding:24rpx 0; border-bottom:1rpx solid #ece6da; }
+.row.head { border-bottom:1rpx solid #e6ddcf; }
+.c-n { width:30%; }
+.c-p { width:50%; color:#5f7060; }
+.c-q { width:20%; text-align:right; }
+.tip { margin-top:24rpx; font-size:24rpx; }

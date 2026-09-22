@@ -1,0 +1,12 @@
+.lead { font-size:44rpx; margin-top:16rpx; }
+.sub { letter-spacing:2rpx; margin:6rpx 0 24rpx; }
+.rec { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:16rpx; padding:24rpx; margin-bottom:24rpx; }
+.head { display:flex; align-items:center; }
+.av { width:56rpx; height:56rpx; border-radius:50%; margin-right:16rpx; }
+.av.ph { background:#7e8c78; color:#fff; text-align:center; line-height:56rpx; font-size:26rpx; }
+.who { font-size:28rpx; }
+.when { font-size:22rpx; margin-left:auto; }
+.text { margin:16rpx 0; font-size:30rpx; line-height:1.7; }
+.imgs { display:flex; flex-wrap:wrap; }
+.im { width:212rpx; height:212rpx; border-radius:10rpx; margin:0 10rpx 10rpx 0; background:#ece6da; }
+.fab { position:fixed; right:40rpx; bottom:calc(60rpx + env(safe-area-inset-bottom)); background:#5f7060; color:#fff; padding:24rpx 36rpx; border-radius:48rpx; font-size:30rpx; box-shadow:0 6rpx 20rpx rgba(0,0,0,.15); }

@@ -1,0 +1,29 @@
+.container { padding: 28rpx 32rpx 80rpx; }
+.muted { color: #8a8378; }
+.grp-h { font-size: 26rpx; color: #9c8f7c; letter-spacing: 3rpx; margin: 6rpx 0 18rpx; }
+.grp-gap { margin-top: 44rpx; }
+
+/* 全村管理 —— 清爽卡片入口 */
+.net-ops { background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 16rpx; overflow: hidden; }
+.net-op { display: flex; align-items: center; padding: 30rpx 26rpx; border-bottom: 1rpx solid #f0eadd; }
+.net-op:last-child { border-bottom: none; }
+.no-ico { font-size: 36rpx; margin-right: 20rpx; }
+.no-t { flex: 1; font-size: 31rpx; color: #4a4a44; }
+.no-a { font-size: 34rpx; color: #c2b8a6; }
+
+/* 节点管理 */
+.vpick { background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 12rpx; padding: 24rpx; font-size: 30rpx; color: #8a8378; }
+.vp-name { color: #2f2f2b; font-weight: 600; }
+.new-row { display: flex; margin: 20rpx 0 10rpx; }
+.new-btn { flex: 1; text-align: center; color: #5f7060; background: #eef1ea; border-radius: 12rpx; padding: 22rpx 0; margin-right: 16rpx; font-size: 28rpx; }
+.new-btn:last-child { margin-right: 0; }
+
+.section-h { font-size: 28rpx; color: #5f7060; font-weight: 600; margin: 36rpx 0 16rpx; }
+.item { background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 12rpx; padding: 22rpx; margin-bottom: 14rpx; }
+.it-main { padding-bottom: 14rpx; }
+.it-t { font-size: 32rpx; }
+.it-s { font-size: 24rpx; margin-top: 6rpx; }
+.ops { display: flex; border-top: 1rpx solid #f0eadd; padding-top: 14rpx; }
+.op { font-size: 26rpx; color: #5f7060; margin-right: 40rpx; }
+.op.del { color: #b06a55; margin-right: 0; margin-left: auto; }
+.none { padding: 6rpx 0 4rpx; font-size: 26rpx; }

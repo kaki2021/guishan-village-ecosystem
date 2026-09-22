@@ -1,0 +1,8 @@
+<view wx:if="{{loaded}}" class="page">
+  <view class="content">
+    <mp-html content="{{html}}" />
+  </view>
+  <view class="acts">
+    <view class="a-fill" bindtap="goJoin">加入我们 ›</view>
+  </view>
+</view>

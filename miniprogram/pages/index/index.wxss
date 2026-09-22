@@ -1,0 +1,64 @@
+.container { padding: 32rpx 32rpx 80rpx; }
+.serif { font-family: "Songti SC", "SimSun", serif; }
+.muted { color: #8a8378; }
+.section-h { font-size: 28rpx; color: #5f7060; font-weight: 600; letter-spacing: 2rpx; margin: 40rpx 0 18rpx; }
+
+/* 理念主视觉 —— 轮播 */
+.hero-sw { height: 360rpx; border-radius: 22rpx; margin-top: 6rpx; overflow: hidden; box-shadow: 0 10rpx 30rpx rgba(60,72,55,.22); }
+.hero-card { height: 100%; box-sizing: border-box; background: linear-gradient(150deg, #41523f 0%, #586b51 55%, #6b7d5e 100%); color: #fdfdfa; padding: 52rpx 44rpx; display: flex; flex-direction: column; justify-content: center; }
+.mh-brand { font-size: 30rpx; letter-spacing: 6rpx; opacity: .85; margin-bottom: 22rpx; }
+.mh-line { font-size: 52rpx; line-height: 1.34; font-weight: 600; white-space: pre-line; }
+.mh-sub { font-size: 25rpx; letter-spacing: 1rpx; color: #d8e0d2; margin-top: 22rpx; line-height: 1.5; }
+.hero-cta { display: inline-block; margin-top: 22rpx; font-size: 27rpx; color: #5f7060; border: 1rpx solid #c2cbbb; border-radius: 40rpx; padding: 14rpx 34rpx; }
+
+/* 村子近况 */
+.moments-box { margin-top: 10rpx; }
+.moments-h { display: flex; align-items: baseline; }
+.more { margin-left: auto; font-size: 26rpx; color: #5f7060; font-weight: normal; }
+.moment { background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 14rpx; padding: 24rpx; margin-bottom: 16rpx; }
+.mo-head { display: flex; align-items: center; }
+.mo-av { width: 52rpx; height: 52rpx; border-radius: 50%; margin-right: 14rpx; }
+.mo-av.ph { background: #9c5a3c; color: #fff; text-align: center; line-height: 52rpx; font-size: 24rpx; }
+.mo-who { font-size: 28rpx; }
+.mo-when { font-size: 22rpx; margin-left: auto; }
+.mo-text { margin: 14rpx 0; font-size: 30rpx; line-height: 1.7; }
+.mo-imgs { display: flex; flex-wrap: wrap; }
+.mo-im { width: 206rpx; height: 206rpx; border-radius: 10rpx; margin: 0 10rpx 10rpx 0; background: #ece6da; }
+.mo-place { font-size: 24rpx; margin-top: 6rpx; }
+
+/* 活动卡 */
+.card { background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 16rpx; padding: 26rpx; margin-bottom: 16rpx; }
+.dot { display: inline-block; width: 16rpx; height: 16rpx; border-radius: 50%; margin-right: 12rpx; vertical-align: middle; }
+.tag { font-size: 24rpx; color: #8a8378; }
+.c-title { font-size: 36rpx; margin: 12rpx 0 8rpx; }
+.remain { color: #9c5a3c; font-size: 28rpx; margin-top: 8rpx; }
+
+/* 山中各处 */
+.v-grid { display: flex; flex-direction: column; }
+.v-card { background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 16rpx; padding: 30rpx; margin-bottom: 16rpx; }
+.v-name { font-size: 38rpx; }
+.v-intro { font-size: 27rpx; line-height: 1.6; margin-top: 10rpx; }
+
+/* 加入我们 —— 行动色 */
+.join-entry { background: #9c5a3c; color: #fff; border-radius: 16rpx; padding: 34rpx 28rpx; margin: 40rpx 0 10rpx; }
+.j-t { font-size: 36rpx; font-weight: 600; }
+.j-s { font-size: 26rpx; color: #f0e2d8; margin-top: 10rpx; line-height: 1.5; }
+
+/* 山中向导 —— 底部低调入口 */
+.guide-line { display: flex; align-items: center; margin-top: 24rpx; padding: 26rpx 28rpx; border: 1rpx solid #d8d2c4; border-radius: 14rpx; background: #fbfaf6; }
+.gl-ico { font-size: 34rpx; margin-right: 16rpx; }
+.gl-t { font-size: 30rpx; color: #5a5a54; flex: 1; }
+.gl-a { font-size: 34rpx; color: #b9b3a4; }
+.v-card { overflow:hidden; padding:0; }
+.vc-cover { width:100%; height:280rpx; display:block; background:#ece6da; }
+.vc-body { padding:30rpx; }
+.vc-top { display:flex; align-items:center; }
+.v-type { font-size:22rpx; border:1rpx solid; border-radius:24rpx; padding:4rpx 18rpx; margin-left:16rpx; }
+
+/* 节点类型筛选条 */
+.vtype-bar { white-space: nowrap; margin-bottom: 20rpx; }
+.vtype { display: inline-block; padding: 12rpx 30rpx; margin-right: 16rpx; border-radius: 30rpx; font-size: 26rpx; color: #6a6358; background: #f0ece4; }
+.vtype.on { color: #fff; background: #5f7060; }
+.v-types { display: flex; flex-wrap: wrap; gap: 8rpx; }
+.v-type { display: inline-block; padding: 2rpx 14rpx; border: 1rpx solid; border-radius: 20rpx; font-size: 21rpx; }
+.v-empty { text-align: center; padding: 40rpx 0; width: 100%; }

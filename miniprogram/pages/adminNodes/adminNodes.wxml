@@ -1,0 +1,14 @@
+<view wx:if="{{loaded}}" class="container">
+  <view class="muted tip">亓灵提交的新节点申请，通过后上线并由申请人负责。</view>
+  <view class="n" wx:for="{{list}}" wx:key="_id">
+    <view class="n-name">{{item.name}}</view>
+    <view wx:if="{{item.intro}}" class="muted n-intro">{{item.intro}}</view>
+    <view wx:if="{{item.address}}" class="muted n-addr">📍 {{item.address}}</view>
+    <view class="muted n-by">申请人：{{item.applicant || '—'}}</view>
+    <view class="n-ops">
+      <view class="n-btn ok" data-id="{{item._id}}" bindtap="approve">通过</view>
+      <view class="n-btn no" data-id="{{item._id}}" bindtap="reject">驳回</view>
+    </view>
+  </view>
+  <view wx:if="{{!list.length}}" class="empty">没有待审核的节点</view>
+</view>

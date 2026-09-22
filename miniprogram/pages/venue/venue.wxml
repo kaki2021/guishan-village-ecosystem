@@ -1,0 +1,37 @@
+<view wx:if="{{venue}}">
+  <image wx:if="{{venue.cover}}" class="v-cover" src="{{venue.cover}}" mode="widthFix"></image>
+  <view class="vhero" style="background:{{color}}">
+    <view wx:if="{{venue.typeLabel}}" class="vh-type">{{venue.typeLabel}}</view>
+    <view class="vh-name serif">{{venue.name}}</view>
+    <view class="vh-intro">{{venue.intro}}</view>
+    <view wx:if="{{venue.address}}" class="vh-addr">{{venue.address}}</view>
+    <view wx:if="{{venue.music}}" class="vh-music" bindtap="toggleMusic">{{playing ? '⏸ 暂停音乐' : '♪ 播放音乐'}}</view>
+  </view>
+
+  <view class="container">
+    <block wx:if="{{venue.detailHtml}}">
+      <view class="section-h">关于这里</view>
+      <view class="detail"><mp-html content="{{venue.detailHtml}}" /></view>
+    </block>
+
+    <block wx:if="{{sessions.length}}">
+      <view class="section-h">近期活动</view>
+      <view class="card" wx:for="{{sessions}}" wx:key="activityId" data-aid="{{item.activityId}}" bindtap="goSession">
+        <view class="tag">{{item.categoryLabel}}</view>
+        <view class="c-title serif">{{item.title}}</view>
+        <view class="muted">{{item.recurrenceText}}</view>
+      </view>
+    </block>
+
+    <block wx:if="{{featured.length}}">
+      <view class="section-h">读一读</view>
+      <view class="row" wx:for="{{featured}}" wx:key="_id" data-id="{{item._id}}" bindtap="goContent">
+        <image class="r-cover" src="{{item.cover}}" mode="aspectFill" wx:if="{{item.cover}}"></image>
+        <view class="r-cover ph" wx:else></view>
+        <view class="r-body"><view class="r-title">{{item.title}}</view><view class="tag">{{item.typeLabel}}</view></view>
+      </view>
+    </block>
+
+    <view wx:if="{{!sessions.length && !featured.length}}" class="empty">这处还在筹备中</view>
+  </view>
+</view>

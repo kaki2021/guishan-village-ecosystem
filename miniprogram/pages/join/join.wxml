@@ -1,0 +1,95 @@
+<view class="container">
+
+  <!-- 选择身份 -->
+  <block wx:if="{{mode==='menu'}}">
+    <view class="lead serif">你想以什么方式回来？</view>
+    <view class="muted lead-s">没有人是旁观者。每个来到这里的人，都可以参与、贡献、生长。</view>
+
+    <view class="opt opt-contact">
+      <view class="o-e">🌱</view>
+      <view class="o-r"><view class="o-t">来住几天</view><view class="o-s muted">先做旅行者——点这里直接和我们聊，安排来住</view></view>
+      <view class="o-a">💬</view>
+      <button class="contact-cover" open-type="contact" session-from="join-stay"></button>
+    </view>
+    <view class="opt" data-act="reside" bindtap="pick">
+      <view class="o-e">🏡</view>
+      <view class="o-r"><view class="o-t">长期驻留</view><view class="o-s muted">短住一周或驻留数月，换一种活法、调养身体</view></view>
+      <view class="o-a">›</view>
+    </view>
+    <view class="opt" data-act="partner" bindtap="pick">
+      <view class="o-e">🤝</view>
+      <view class="o-r"><view class="o-t">成为共创伙伴</view><view class="o-s muted">耕作、做饭、教书、行医、修房——不需要学历背景，只需要愿意回来</view></view>
+      <view class="o-a">›</view>
+    </view>
+    <view class="opt" data-act="node" bindtap="pick">
+      <view class="o-e">🏔</view>
+      <view class="o-r"><view class="o-t">带一个节点加入网络</view><view class="o-s muted">有好的自然条件和闲置资源，想成为新村落文明的一个点</view></view>
+      <view class="o-a">›</view>
+    </view>
+    <view class="opt" data-act="community" bindtap="pick">
+      <view class="o-e">💬</view>
+      <view class="o-r"><view class="o-t">先进社群看看</view><view class="o-s muted">关注公众号，了解动态、进群交流</view></view>
+      <view class="o-a">›</view>
+    </view>
+
+    <view class="doing-box">
+      <view class="doing-h">我们正在做的几件具体事</view>
+      <view class="doing-i">🍲 共食食堂 · 自家菜，喂客人，也喂村里的留守老人</view>
+      <view class="doing-i">🚌 观光车接驳 ·  接送山里老人去食堂吃饭、参加活动，平时也常去慰问</view>
+      <view class="doing-i">🌾 荒田复耕 · 把撂荒的地重新种起来</view>
+      <view class="doing-s muted">没在下面看到你那一手？也来聊——这套生态在长，你会的东西大概率有用。</view>
+    </view>
+
+    <view class="phones" wx:if="{{publicContacts.length}}">
+      <view class="muted ph-h">想直接聊，也可以打电话：</view>
+      <view class="ph" wx:for="{{publicContacts}}" wx:key="phone" data-p="{{item.phone}}" bindtap="callPhone">{{item.name}} · {{item.phone}}</view>
+    </view>
+  </block>
+
+  <!-- 社群：公众号二维码 -->
+  <block wx:elif="{{mode==='community'}}">
+    <view class="lead serif">先进社群看看</view>
+    <view class="muted lead-s">长按识别下方二维码，关注公众号；进群入口在公众号里。</view>
+    <image class="qr" src="/images/gongzhonghao-qr.jpg" mode="widthFix" show-menu-by-longpress bindtap="saveQr"></image>
+    <view class="muted qr-tip">长按二维码可识别 · 轻点可放大</view>
+    <view class="back" bindtap="back">‹ 返回</view>
+  </block>
+
+  <!-- 留意向表单 -->
+  <block wx:elif="{{mode==='form'}}">
+    <view class="lead serif">{{kindLabel}}</view>
+    <view class="muted lead-s">留下联系方式，我们会主动联系你。</view>
+    <view class="f"><view class="lb muted">怎么称呼你</view><input class="ipt" value="{{name}}" bindinput="onName" placeholder="称呼" /></view>
+    <view class="f"><view class="lb muted">微信号</view><input class="ipt" value="{{wechat}}" bindinput="onWechat" placeholder="方便我们加你" /></view>
+    <view class="f"><view class="lb muted">手机号（选填）</view><input class="ipt" type="number" value="{{phone}}" bindinput="onPhone" placeholder="选填" /></view>
+    <view wx:if="{{kind==='partner'}}" class="f">
+      <view class="lb muted">你会哪一手？（可多选）</view>
+      <view class="sk-group" wx:for="{{skillGroups}}" wx:for-item="g" wx:key="tag">
+        <view class="sk-tag">{{g.tag}}</view>
+        <view class="sk-items">
+          <view class="sk {{skills.indexOf(item)>=0 ? 'on' : ''}}" wx:for="{{g.items}}" wx:key="*this" data-s="{{item}}" bindtap="toggleSkill">{{item}}</view>
+        </view>
+      </view>
+      <view class="sk-custom">
+        <view class="muted sc-lb">有其他的技能，或是有感兴趣的技能（多个用逗号隔开）：</view>
+        <input class="sc-ipt" value="{{customSkill}}" bindinput="onCustomSkill" placeholder="如 木工、面包烘焙、无人机航拍" />
+      </view>
+    </view>
+    <view class="f"><view class="lb muted">想说的话</view><textarea class="ta" value="{{message}}" bindinput="onMsg" placeholder="想以什么方式参与、能带来什么、有什么想问的" maxlength="500" /></view>
+    <view class="btn-primary {{submitting?'disabled':''}}" bindtap="submit">{{submitting?'提交中…':'提交'}}</view>
+    <button class="btn-contact" open-type="contact" session-from="join-form">或直接在线咨询 💬</button>
+    <view class="back" bindtap="back">‹ 选别的方式</view>
+  </block>
+
+  <!-- 提交成功 -->
+  <block wx:elif="{{mode==='done'}}">
+    <view class="done-e">🌿</view>
+    <view class="lead serif done-t">收到了</view>
+    <view class="muted done-s">谢谢你愿意回来。我们会尽快主动联系你。</view>
+    <block wx:if="{{publicContacts.length}}">
+      <view class="muted done-s">急的话，也可以直接打电话给我们。</view>
+      <view class="ph" wx:for="{{publicContacts}}" wx:key="phone" data-p="{{item.phone}}" bindtap="callPhone">{{item.name}} · {{item.phone}}</view>
+    </block>
+  </block>
+
+</view>

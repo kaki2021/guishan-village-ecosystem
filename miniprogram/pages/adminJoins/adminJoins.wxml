@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="muted top">共 {{list.length}} 条意向</view>
+  <view class="card" wx:for="{{list}}" wx:key="_id">
+    <view class="row1"><view class="kind">{{item.kindLabel}}</view><view class="muted when">{{item.timeText}}</view></view>
+    <view class="name">{{item.name}}</view>
+    <view wx:if="{{item.wechat}}" class="kv" data-v="{{item.wechat}}" bindtap="copy">微信：{{item.wechat}}（点复制）</view>
+    <view wx:if="{{item.phone}}" class="kv" data-p="{{item.phone}}" bindtap="callPhone">电话：{{item.phone}}（点拨打）</view>
+    <view wx:if="{{item.message}}" class="msg">{{item.message}}</view>
+    <view wx:if="{{item.skills.length}}" class="skills">
+      <text class="sk" wx:for="{{item.skills}}" wx:for-item="s" wx:key="*this">{{s}}</text>
+    </view>
+  </view>
+  <view wx:if="{{loaded && !list.length}}" class="empty">还没有人留意向</view>
+</view>

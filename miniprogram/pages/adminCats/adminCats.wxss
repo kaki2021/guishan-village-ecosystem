@@ -1,0 +1,12 @@
+.grp { font-size: 30rpx; color: #2f2f2b; font-weight: 600; margin: 10rpx 0 18rpx; }
+.grp-gap { margin-top: 46rpx; }
+.gh-s { font-size: 24rpx; font-weight: normal; }
+.pend-h { font-size: 24rpx; margin: 6rpx 0 12rpx; }
+.cat { display: flex; align-items: center; background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 12rpx; padding: 22rpx; margin-bottom: 14rpx; }
+.cat.pend { border-color: #d8a878; background: #fff7ee; }
+.c-l { font-size: 32rpx; flex: 1; }
+.ops { display: flex; }
+.op { font-size: 28rpx; color: #5f7060; margin-left: 30rpx; }
+.op.ok { color: #3f7a4f; }
+.op.del { color: #b06a55; }
+.add { text-align: center; color: #5f7060; border: 1rpx dashed #b9c2b3; border-radius: 12rpx; padding: 22rpx; font-size: 28rpx; margin-top: 4rpx; }

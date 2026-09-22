@@ -1,0 +1,59 @@
+<view wx:if="{{loaded}}" class="container">
+  <picker mode="selector" range="{{venues}}" range-key="name" value="{{vIndex}}" bindchange="pickVenue">
+    <view class="ppick">编辑节点：<text class="pp-name">{{venues[vIndex].name}}</text> ▾</view>
+  </picker>
+
+  <view class="grp">封面</view>
+  <view wx:if="{{coverShow}}" class="cover-wrap">
+    <image class="cover-img" src="{{coverShow}}" mode="aspectFill"></image>
+    <view class="cover-del" bindtap="delCover">×</view>
+  </view>
+  <view wx:else class="cover-add" bindtap="chooseCover">＋ 选封面</view>
+
+  <view class="grp">基本</view>
+  <view class="f"><view class="lb">一句话简介（卡片显示，60字内）</view><textarea class="ta" value="{{intro}}" bindinput="onIntro" maxlength="-1" auto-height /></view>
+  <view class="f"><view class="lb">节点类型（可多选，点选/取消）</view>
+    <view class="type-tags">
+      <view wx:for="{{types}}" wx:key="key" class="type-tag {{item.on ? 'on' : ''}}" data-key="{{item.key}}" bindtap="toggleType" hover-class="tag-hover">{{item.on ? '✓ ' : ''}}{{item.name}}</view>
+      <view wx:if="{{!types.length}}" class="muted">还没有节点类型，去「分类管理」添加</view>
+    </view>
+  </view>
+
+  <view class="f"><view class="lb">邀请码（发给想加入本节点的人，输码即成为本节点仓灵）</view>
+    <view class="invite-box">
+      <text class="invite-code">{{inviteCode || '未生成'}}</text>
+      <view class="invite-ops">
+        <text wx:if="{{inviteCode}}" class="invite-btn" bindtap="copyCode">复制</text>
+        <text class="invite-btn gen" bindtap="genCode">{{inviteCode ? '重新生成' : '生成'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="f"><view class="lb">背景音乐（可选，进入节点页后可点播放；建议用免版权音乐）</view>
+    <view class="music-box">
+      <text class="music-name">{{musicName || '未设置音乐'}}</text>
+      <view class="music-ops">
+        <text wx:if="{{musicName}}" class="music-btn del" bindtap="delMusic">移除</text>
+        <text class="music-btn pick" bindtap="chooseMusic">{{musicName ? '更换' : '上传音乐'}}</text>
+      </view>
+    </view>
+    <view class="muted music-tip">从微信聊天里选择音乐文件（mp3/m4a，小于10MB）。可先把音乐发到「文件传输助手」再来选。</view>
+  </view>
+  <view class="f"><view class="lb">位置（用于节点地图）</view>
+    <view class="latlng">
+      <input class="ipt half" value="{{lat}}" bindinput="onLat" placeholder="纬度 lat" type="digit" />
+      <input class="ipt half" value="{{lng}}" bindinput="onLng" placeholder="经度 lng" type="digit" />
+    </view>
+  </view>
+
+  <view class="grp">图文介绍（HTML，可多板块）</view>
+  <view class="hint">不会写 HTML？把要的内容和板块描述给 AI，并加一句：<text class="hl">"请生成用于微信小程序 mp-html 组件的 HTML，避免不支持的标签和 JS、避免外链字体和复杂脚本"</text>，把代码粘到下面。图片用"插入图片"按钮，会自动加到末尾。</view>
+  <textarea class="ta html" value="{{detailHtml}}" bindinput="onHtml" maxlength="-1" auto-height placeholder="如 <h3>环境</h3><p>……</p><h3>房间</h3><p>……</p>" />
+  <view class="row">
+    <view class="mini-btn" bindtap="addImg">＋ 插入图片</view>
+    <view class="mini-btn" bindtap="doPreview">预览效果</view>
+  </view>
+  <view wx:if="{{preview}}" class="preview"><view class="pv-h muted">预览</view><mp-html content="{{preview}}" /></view>
+
+  <view class="btn-save {{saving?'disabled':''}}" bindtap="save">{{saving?'保存中…':'保存'}}</view>
+</view>

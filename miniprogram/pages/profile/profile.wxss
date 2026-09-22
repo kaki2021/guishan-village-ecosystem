@@ -1,0 +1,8 @@
+.lead { margin:16rpx 0 40rpx; }
+.avatar-btn { background:transparent; padding:0; line-height:normal; width:180rpx; margin:0 auto 40rpx; }
+.avatar-btn::after { border:none; }
+.avatar { width:180rpx; height:180rpx; border-radius:50%; display:block; }
+.avatar.ph { background:#eaeee6; color:#8a8378; font-size:28rpx; line-height:180rpx; text-align:center; }
+.field { margin-bottom:30rpx; }
+.lb { margin-bottom:14rpx; }
+.ipt { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:12rpx; padding:24rpx; font-size:32rpx; }

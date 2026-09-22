@@ -1,0 +1,42 @@
+.lead { font-size:42rpx; margin-top:20rpx; }
+.lead-s { margin:14rpx 0 30rpx; line-height:1.6; }
+.opt { display:flex; align-items:center; background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:16rpx; padding:28rpx 24rpx; margin-bottom:18rpx; }
+.o-e { font-size:48rpx; margin-right:22rpx; }
+.o-r { flex:1; }
+.o-t { font-size:32rpx; margin-bottom:6rpx; }
+.o-s { font-size:25rpx; line-height:1.5; }
+.o-a { font-size:40rpx; color:#c2b8a6; margin-left:10rpx; }
+.phones { margin-top:40rpx; padding-top:24rpx; border-top:1rpx solid #ece6da; }
+.ph-h { font-size:25rpx; margin-bottom:14rpx; }
+.ph { color:#5f7060; font-size:32rpx; padding:14rpx 0; }
+.qr { width:60%; margin:30rpx 20% 0; border:1rpx solid #e6ddcf; border-radius:12rpx; }
+.qr-tip { text-align:center; font-size:24rpx; margin-top:16rpx; }
+.f { margin-bottom:24rpx; }
+.lb { margin-bottom:12rpx; font-size:26rpx; }
+.ipt { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:12rpx; padding:22rpx; font-size:32rpx; }
+.ta { background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:12rpx; padding:22rpx; font-size:32rpx; width:100%; box-sizing:border-box; height:200rpx; }
+.back { text-align:center; color:#8a8378; margin-top:30rpx; font-size:28rpx; }
+.done-e { font-size:100rpx; text-align:center; margin:60rpx 0 20rpx; }
+.done-t { text-align:center; }
+.done-s { text-align:center; margin:20rpx 0 40rpx; line-height:1.8; }
+.done-s + .ph, .done-s ~ .ph { text-align:center; }
+.sk-group { margin-bottom: 24rpx; }
+.sk-tag { font-size: 25rpx; color: #5f7060; margin: 10rpx 0 14rpx; }
+.sk-items { display: flex; flex-wrap: wrap; }
+.sk { font-size: 26rpx; color: #5a5a54; background: #f1ece2; border: 1rpx solid #e6ddcf; border-radius: 30rpx; padding: 12rpx 26rpx; margin: 0 16rpx 16rpx 0; }
+.sk.on { background: #5f7060; color: #fff; border-color: #5f7060; }
+.doing-box { background:#f6efe6; border-radius:16rpx; padding:28rpx; margin:30rpx 0 10rpx; }
+.doing-h { font-size:30rpx; font-weight:600; color:#41523f; margin-bottom:18rpx; }
+.doing-i { font-size:27rpx; line-height:1.9; color:#4a4a44; }
+.doing-s { font-size:24rpx; line-height:1.6; margin-top:16rpx; }
+.sk-custom { margin-top: 20rpx; }
+.sc-lb { font-size: 24rpx; margin-bottom: 12rpx; }
+.sc-ipt { background: #fffdf8; border: 1rpx solid #e6ddcf; border-radius: 12rpx; padding: 22rpx 24rpx; font-size: 28rpx; width: 100%; box-sizing: border-box; min-height: 50rpx; }
+
+.btn-contact { width: 100%; box-sizing: border-box; background: #eef1ea; color: #5f7060; border-radius: 14rpx; padding: 26rpx; font-size: 30rpx; font-weight: normal; margin-top: 18rpx; }
+.btn-contact::after { border: none; }
+
+/* 来住几天：view 卡片保持对齐，叠一个透明 button 接管点击 */
+.opt-contact { position: relative; }
+.contact-cover { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; margin: 0; padding: 0; background: transparent; }
+.contact-cover::after { border: none; }

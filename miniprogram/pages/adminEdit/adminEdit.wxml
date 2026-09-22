@@ -1,0 +1,76 @@
+<view class="container">
+  <view class="muted vn">节点：{{venueName}}</view>
+  <view class="f"><view class="lb">标题</view><input class="ipt" value="{{title}}" bindinput="onTitle" placeholder="名称" /></view>
+
+  <block wx:if="{{type==='activity'}}">
+    <view class="f"><view class="lb">分类</view><picker mode="selector" range="{{CATS}}" range-key="label" value="{{catIndex}}" bindchange="onCat"><view class="pk">{{CATS[catIndex].label || '（先去分类管理加分类）'}} ▾</view></picker></view>
+
+    <view class="f">
+      <view class="lb">封面图（选填）</view>
+      <view class="cover-row">
+        <view wx:if="{{cover}}" class="cover-wrap"><image class="cover-img" src="{{cover}}" mode="aspectFill"></image><view class="cover-del" bindtap="delCover">×</view></view>
+        <view wx:else class="cover-add" bindtap="chooseCover">＋ 封面</view>
+      </view>
+    </view>
+
+    <view class="f"><view class="lb">时间安排</view><picker mode="selector" range="{{REPEATS}}" range-key="label" value="{{repeatIndex}}" bindchange="onRepeat"><view class="pk">{{REPEATS[repeatIndex].label}} ▾</view></picker></view>
+
+    <!-- 单次：日期 -->
+    <view wx:if="{{REPEATS[repeatIndex].v==='once'}}" class="f2">
+      <view class="half"><view class="lb">日期</view><picker mode="date" value="{{date}}" bindchange="onDate"><view class="pk">{{date||'选择'}} ▾</view></picker></view>
+      <view class="half"><view class="lb">时间</view><picker mode="time" value="{{clock}}" bindchange="onClock"><view class="pk">{{clock}} ▾</view></picker></view>
+    </view>
+    <!-- 每周：星期+时间 -->
+    <view wx:elif="{{REPEATS[repeatIndex].v==='weekly'}}" class="f2">
+      <view class="half"><view class="lb">星期几</view><picker mode="selector" range="{{WEEKDAYS}}" value="{{weekdayIndex}}" bindchange="onWeekday"><view class="pk">{{WEEKDAYS[weekdayIndex]}} ▾</view></picker></view>
+      <view class="half"><view class="lb">时间</view><picker mode="time" value="{{clock}}" bindchange="onClock"><view class="pk">{{clock}} ▾</view></picker></view>
+    </view>
+    <!-- 每月：几号+时间 -->
+    <view wx:elif="{{REPEATS[repeatIndex].v==='monthly'}}" class="f2">
+      <view class="half"><view class="lb">每月几号</view><input class="ipt" type="number" value="{{monthday}}" bindinput="onMonthday" placeholder="1-31" /></view>
+      <view class="half"><view class="lb">时间</view><picker mode="time" value="{{clock}}" bindchange="onClock"><view class="pk">{{clock}} ▾</view></picker></view>
+    </view>
+    <!-- 每天：只要时间 -->
+    <view wx:else class="f"><view class="lb">时间</view><picker mode="time" value="{{clock}}" bindchange="onClock"><view class="pk">{{clock}} ▾</view></picker></view>
+
+    <view class="f"><view class="lb">{{REPEATS[repeatIndex].v==='once'?'名额':'每场默认名额'}}</view><input class="ipt" type="number" value="{{capacity}}" bindinput="onCap" placeholder="如 12" /></view>
+
+    <view class="f">
+      <view class="lb">活动介绍（HTML，可放图文、说明）</view>
+      <view class="html-hint">不会写 HTML？把要的内容描述给 AI，并加一句"请生成用于微信小程序 mp-html 组件的 HTML，避免不支持的标签和 JS"，粘到下面。纯文字也行。无需报名之类的说明也可以写在这里。</view>
+      <textarea class="ta tall html" value="{{introHtml}}" bindinput="onIntroHtml" maxlength="-1" auto-height placeholder="如 <p>带上水壶，山门口集合…</p>" />
+      <view class="html-row">
+        <view class="html-btn" bindtap="addIntroImg">＋ 插入图片</view>
+        <view class="html-btn" bindtap="previewIntro">预览效果</view>
+      </view>
+      <view wx:if="{{introPreview}}" class="html-preview"><mp-html content="{{introPreview}}" /></view>
+    </view>
+
+    <view class="f"><view class="lb">状态</view><picker mode="selector" range="{{SS}}" range-key="label" value="{{ssIndex}}" bindchange="onSs"><view class="pk">{{SS[ssIndex].label}} ▾</view></picker></view>
+  </block>
+
+  <block wx:else>
+    <view class="f"><view class="lb">类型</view><picker mode="selector" range="{{TYPES}}" range-key="label" value="{{typeIndex}}" bindchange="onType"><view class="pk">{{TYPES[typeIndex].label || '（先去分类管理加类型）'}} ▾</view></picker></view>
+    <view class="f">
+      <view class="lb">封面图</view>
+      <view class="cover-row">
+        <view wx:if="{{cover}}" class="cover-wrap"><image class="cover-img" src="{{cover}}" mode="aspectFill"></image><view class="cover-del" bindtap="delCover">×</view></view>
+        <view wx:else class="cover-add" bindtap="chooseCover">＋ 封面</view>
+      </view>
+    </view>
+    <view class="f">
+      <view class="lb">正文（HTML）</view>
+      <view class="html-hint">不会写 HTML？把内容描述给 AI，并加一句"请生成用于微信小程序 mp-html 组件的 HTML，避免不支持的标签和 JS"，把代码粘到下面。图片用"插入图片"按钮自动加到末尾。</view>
+      <textarea class="ta tall html" value="{{bodyHtml}}" bindinput="onBodyHtml" maxlength="-1" auto-height placeholder="如 <h3>小标题</h3><p>正文…</p>" />
+      <view class="html-row">
+        <view class="html-btn" bindtap="addBodyImg">＋ 插入图片</view>
+        <view class="html-btn" bindtap="previewBody">预览效果</view>
+      </view>
+      <view wx:if="{{preview}}" class="html-preview"><mp-html content="{{preview}}" /></view>
+    </view>
+    <view class="f"><view class="lb">节气标签（可选）</view><input class="ipt" value="{{solarTerm}}" bindinput="onTerm" placeholder="如 谷雨" /></view>
+    <view class="f"><view class="lb">状态</view><picker mode="selector" range="{{CS}}" range-key="label" value="{{csIndex}}" bindchange="onCs"><view class="pk">{{CS[csIndex].label}} ▾</view></picker></view>
+  </block>
+
+  <view class="btn-primary {{saving?'disabled':''}}" bindtap="save">{{saving?'保存中…':'保存'}}</view>
+</view>

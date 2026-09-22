@@ -1,0 +1,25 @@
+<image wx:if="{{activity.cover}}" class="s-cover" src="{{activity.cover}}" mode="widthFix"></image>
+<view wx:if="{{activity}}" class="container">
+  <view><text class="tag">{{activity.venueName}}</text></view>
+  <view class="title serif">{{activity.title}}</view>
+  <view class="info">
+    <view class="line"><text class="k muted">时间</text>{{activity.recurrenceText}}</view>
+    <view class="line"><text class="k muted">每场名额</text>{{activity.capacity}} 位</view>
+  </view>
+  <view wx:if="{{activity.introHtml}}" class="desc"><mp-html content="{{activity.introHtml}}" /></view>
+
+  <view class="sec-h">{{activity.repeat==='once' ? '报名' : '选择参加的场次'}}</view>
+  <view class="ses" wx:for="{{sessions}}" wx:key="date">
+    <view class="ses-l">
+      <view class="ses-d">{{item.dateLabel}}</view>
+      <view class="muted ses-r">{{item.full ? '已满' : '余 ' + item.remain + ' 位'}}</view>
+    </view>
+    <view wx:if="{{item.enrolled}}" class="ses-btn ghost" data-date="{{item.date}}" bindtap="cancel">已报·取消</view>
+    <view wx:elif="{{item.full}}" class="ses-btn disabled">已满</view>
+    <view wx:else class="ses-btn {{busyDate===item.date?'disabled':''}}" data-date="{{item.date}}" bindtap="enroll">报名</view>
+  </view>
+  <view wx:if="{{!sessions.length}}" class="muted empty2">近期暂无可报名的场次</view>
+
+  <button class="share-line" open-type="share">↗ 邀朋友一起来</button>
+</view>
+<view wx:else class="empty">加载中…</view>

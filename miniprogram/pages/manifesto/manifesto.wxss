@@ -1,0 +1,4 @@
+.page { padding: 40rpx 44rpx 80rpx; }
+.content { font-size: 31rpx; line-height: 1.9; color: #3a3a36; }
+.acts { padding: 36rpx 0 0; }
+.a-fill { text-align: center; color: #fff; background: #9c5a3c; border-radius: 16rpx; padding: 30rpx; font-size: 32rpx; font-weight: 600; }

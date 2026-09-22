@@ -1,0 +1,16 @@
+.tip { font-size:24rpx; line-height:1.6; margin:6rpx 0 22rpx; }
+.m { display:flex; align-items:center; background:#fffdf8; border:1rpx solid #e6ddcf; border-radius:14rpx; padding:22rpx; margin-bottom:14rpx; }
+.m-av { width:72rpx; height:72rpx; border-radius:50%; margin-right:20rpx; }
+.m-av.ph { background:#9c5a3c; color:#fff; text-align:center; line-height:72rpx; font-size:30rpx; }
+.m-body { flex:1; }
+.m-name { font-size:32rpx; }
+.m-sub { font-size:24rpx; margin-top:6rpx; }
+.m-go { font-size:26rpx; color:#5f7060; }
+.m-lock { font-size:30rpx; }
+.empty { text-align:center; color:#8a8378; padding:80rpx 0; }
+.abdicate { margin: 0 0 20rpx; text-align: center; color: #b06a55; background: #f4e9e5; border-radius: 12rpx; padding: 22rpx; font-size: 28rpx; }
+
+/* 称号筛选 */
+.mfilter { white-space: nowrap; margin-bottom: 20rpx; }
+.mf { display: inline-block; padding: 12rpx 30rpx; margin-right: 14rpx; border-radius: 30rpx; font-size: 26rpx; color: #6a6358; background: #f0ece4; }
+.mf.on { color: #fff; background: #9c5a3c; }

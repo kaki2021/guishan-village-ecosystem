@@ -1,0 +1,53 @@
+<view class="container">
+
+  <view class="grp">山野标签 <text class="muted gh-s">（拍照打标签用）</text></view>
+  <block wx:if="{{wildPending.length}}">
+    <view class="pend-h muted">待收编（AI 新提的）</view>
+    <view class="cat pend" wx:for="{{wildPending}}" wx:key="key">
+      <view class="c-l">{{item.icon}} {{item.name}}</view>
+      <view class="ops">
+        <text class="op ok" data-key="{{item.key}}" bindtap="approve">收编</text>
+        <text class="op" data-key="{{item.key}}" bindtap="merge">并入</text>
+        <text class="op del" data-kind="wild" data-key="{{item.key}}" bindtap="del">删</text>
+      </view>
+    </view>
+  </block>
+  <view class="cat" wx:for="{{wildApproved}}" wx:key="key">
+    <view class="c-l">{{item.icon}} {{item.name}}</view>
+    <view class="ops">
+      <text class="op" data-kind="wild" data-key="{{item.key}}" data-name="{{item.name}}" bindtap="rename">改名</text>
+      <text class="op del" data-kind="wild" data-key="{{item.key}}" bindtap="del">删</text>
+    </view>
+  </view>
+  <view class="add" data-kind="wild" bindtap="add">＋ 手动加标签</view>
+
+  <view class="grp grp-gap">活动分类 <text class="muted gh-s">（发活动/周期时选）</text></view>
+  <view class="cat" wx:for="{{activity}}" wx:key="key">
+    <view class="c-l">{{item.name}}</view>
+    <view class="ops">
+      <text class="op" data-kind="activity" data-key="{{item.key}}" data-name="{{item.name}}" bindtap="rename">改名</text>
+      <text class="op del" data-kind="activity" data-key="{{item.key}}" bindtap="del">删</text>
+    </view>
+  </view>
+  <view class="add" data-kind="activity" bindtap="add">＋ 加活动分类</view>
+
+  <view class="grp grp-gap">内容类型 <text class="muted gh-s">（发内容时选）</text></view>
+  <view class="cat" wx:for="{{content}}" wx:key="key">
+    <view class="c-l">{{item.name}}</view>
+    <view class="ops">
+      <text class="op" data-kind="content" data-key="{{item.key}}" data-name="{{item.name}}" bindtap="rename">改名</text>
+      <text class="op del" data-kind="content" data-key="{{item.key}}" bindtap="del">删</text>
+    </view>
+  </view>
+  <view class="add" data-kind="content" bindtap="add">＋ 加内容类型</view>
+
+  <view class="grp grp-gap">节点类型 <text class="muted gh-s">（山中各处的标签）</text></view>
+  <view class="cat" wx:for="{{venue}}" wx:key="key">
+    <view class="c-l">{{item.name}}</view>
+    <view class="ops">
+      <text class="op" data-kind="venue" data-key="{{item.key}}" data-name="{{item.name}}" bindtap="rename">改名</text>
+      <text class="op del" data-kind="venue" data-key="{{item.key}}" bindtap="del">删</text>
+    </view>
+  </view>
+  <view class="add" data-kind="venue" bindtap="add">＋ 加节点类型</view>
+</view>

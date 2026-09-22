@@ -1,0 +1,52 @@
+<view wx:if="{{ready}}" class="container">
+
+  <view class="grp-h">内容管理</view>
+  <view class="net-ops">
+    <view class="net-op" bindtap="goVenueEdit"><text class="no-ico">🏔</text><view class="no-t">节点资料</view><text class="no-a">›</text></view>
+    <view wx:if="{{canManageAll}}" class="net-op" bindtap="goPages"><text class="no-ico">📖</text><view class="no-t">理念内容</view><text class="no-a">›</text></view>
+    <view wx:if="{{canManageAll}}" class="net-op" bindtap="goCats"><text class="no-ico">🏷</text><view class="no-t">分类管理</view><text class="no-a">›</text></view>
+  </view>
+
+  <view class="grp-h grp-gap">人与节点</view>
+  <view class="net-ops">
+    <view wx:if="{{canMembers || isStewardOnly}}" class="net-op" bindtap="goMembers"><text class="no-ico">👥</text><view class="no-t">成员管理</view><text class="no-a">›</text></view>
+    <view wx:if="{{canManageAll}}" class="net-op" bindtap="goJoins"><text class="no-ico">📨</text><view class="no-t">加入意向</view><text class="no-a">›</text></view>
+    <view wx:if="{{canReviewNodes}}" class="net-op" bindtap="goReviewNodes"><text class="no-ico">✅</text><view class="no-t">节点审核</view><text class="no-a">›</text></view>
+    <view wx:if="{{canApplyNode}}" class="net-op" bindtap="applyNode"><text class="no-ico">➕</text><view class="no-t">申请加节点</view><text class="no-a">›</text></view>
+  </view>
+
+  <view class="grp-h grp-gap">节点管理</view>
+  <picker mode="selector" range="{{venues}}" range-key="name" value="{{vIndex}}" bindchange="pickVenue">
+    <view class="vpick">当前节点：<text class="vp-name">{{venueName}}</text> ▾</view>
+  </picker>
+  <view class="new-row">
+    <view class="new-btn" data-type="activity" bindtap="add">＋ 活动</view>
+    <view class="new-btn" data-type="content" bindtap="add">＋ 内容</view>
+  </view>
+
+  <view class="section-h">活动</view>
+  <view class="item" wx:for="{{activities}}" wx:key="_id">
+    <view class="it-main" data-type="activity" data-id="{{item._id}}" bindtap="edit">
+      <view class="it-t">{{item.title}}{{item.hidden?'（已下架）':''}}</view>
+      <view class="muted it-s">{{item.repeatLabel}} · {{item.recurrenceText}} · 名额{{item.capacity}}</view>
+    </view>
+    <view class="ops">
+      <text class="op" data-id="{{item._id}}" data-title="{{item.title}}" catchtap="viewSignups">名单</text>
+      <text class="op" data-type="activity" data-id="{{item._id}}" data-action="{{item.hidden?'show':'hide'}}" catchtap="act">{{item.hidden?'上架':'下架'}}</text>
+      <text class="op del" data-type="activity" data-id="{{item._id}}" catchtap="del">删除</text>
+    </view>
+  </view>
+  <view wx:if="{{!activities.length}}" class="muted none">还没有活动 · 点上面「＋活动」发一个</view>
+
+  <view class="section-h">内容</view>
+  <view class="item" wx:for="{{contents}}" wx:key="_id">
+    <view class="it-main" data-type="content" data-id="{{item._id}}" bindtap="edit">
+      <view class="it-t">{{item.title}}{{item.hidden?'（草稿）':''}}</view><view class="muted it-s">{{item.sub}}</view>
+    </view>
+    <view class="ops">
+      <text class="op" data-type="content" data-id="{{item._id}}" data-action="{{item.hidden?'show':'hide'}}" catchtap="act">{{item.hidden?'发布':'转草稿'}}</text>
+      <text class="op del" data-type="content" data-id="{{item._id}}" catchtap="del">删除</text>
+    </view>
+  </view>
+  <view wx:if="{{!contents.length}}" class="muted none">还没有内容 · 点上面「＋内容」发一篇</view>
+</view>

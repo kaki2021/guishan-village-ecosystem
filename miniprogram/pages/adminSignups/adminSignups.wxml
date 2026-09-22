@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="h">{{title}}</view>
+  <view class="muted sub">每场名额 {{capacity}} 人</view>
+  <block wx:if="{{list.length}}">
+    <view class="grp" wx:for="{{list}}" wx:key="date">
+      <view class="grp-h">{{item.dateLabel}} · {{item.count}}/{{capacity}} 人</view>
+      <view class="p" wx:for="{{item.people}}" wx:for-item="p" wx:key="index">
+        <text class="p-name">{{p.name}}</text>
+        <text wx:if="{{p.phone}}" class="p-phone" data-phone="{{p.phone}}" bindtap="copyPhone">{{p.phone}} 复制</text>
+      </view>
+    </view>
+  </block>
+  <view wx:elif="{{loaded}}" class="empty">这个活动还没有人报名</view>
+</view>

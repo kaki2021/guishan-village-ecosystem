@@ -1,0 +1,10 @@
+<view class="container">
+  <block wx:if="{{list.length}}">
+    <view class="card {{item.past?'past':''}}" wx:for="{{list}}" wx:key="key" data-aid="{{item.activityId}}" data-date="{{item.date}}" bindtap="goSession">
+      <view class="c-title serif">{{item.title}}</view>
+      <view class="muted">{{item.dateLabel}}{{item.past ? ' · 已结束' : ''}}</view>
+      <view wx:if="{{!item.past}}" class="link3">查看 / 取消 ›</view>
+    </view>
+  </block>
+  <view wx:elif="{{loaded}}" class="empty">还没有报名记录<view class="link2" bindtap="goHome">去归山看看 ›</view></view>
+</view>
